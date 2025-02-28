@@ -88,7 +88,7 @@ if __name__ == '__main__':
         description='Data process for Visual Alignment Constraint for Continuous Sign Language Recognition.')
     parser.add_argument('--dataset', type=str, default='phoenix2014-T',
                         help='save prefix')
-    parser.add_argument('--dataset-root', type=str, default='/disk1/dataset/PHOENIX-2014-T-release-v3/PHOENIX-2014-T',
+    parser.add_argument('--dataset-root', type=str, default='/media/mohan/mohan/phoenix-2014-T.v3/PHOENIX-2014-T-release-v3/PHOENIX-2014-T',
                         help='path to the dataset')
     parser.add_argument('--annotation-prefix', type=str, default='annotations/manual/PHOENIX-2014-T.{}.corpus.csv',
                         help='annotation prefix')
