@@ -113,18 +113,19 @@ class SLRModel(nn.Module):
 
     def criterion_calculation(self, ret_dict, label, label_lgt):
         loss = 0
+        device = ret_dict["sequence_logits"].device  # Get model's device
         for k, weight in self.loss_weights.items():
             if k == 'ConvCTC':
-                loss += weight * self.loss['CTCLoss'](ret_dict["conv_logits"].log_softmax(-1),
-                                                      label.cpu().int(), ret_dict["feat_len"].cpu().int(),
-                                                      label_lgt.cpu().int()).mean()
+                loss += weight * self.loss['CTCLoss'](ret_dict["conv_logits"].log_softmax(-1).to(device),
+                                                      label.to(device).int(), ret_dict["feat_len"].to(device).int(),
+                                                      label_lgt.to(device).int()).mean()
             elif k == 'SeqCTC':
-                loss += weight * self.loss['CTCLoss'](ret_dict["sequence_logits"].log_softmax(-1),
-                                                      label.cpu().int(), ret_dict["feat_len"].cpu().int(),
-                                                      label_lgt.cpu().int()).mean()
+                loss += weight * self.loss['CTCLoss'](ret_dict["sequence_logits"].log_softmax(-1).to(device),
+                                                      label.to(device).int(), ret_dict["feat_len"].to(device).int(),
+                                                      label_lgt.to(device).int()).mean()
             elif k == 'Dist':
-                loss += weight * self.loss['distillation'](ret_dict["conv_logits"],
-                                                           ret_dict["sequence_logits"].detach(),
+                loss += weight * self.loss['distillation'](ret_dict["conv_logits"].to(device),
+                                                           ret_dict["sequence_logits"].detach().to(device),
                                                            use_blank=False)
         return loss
 
