@@ -27,7 +27,7 @@ The web demo video
 
 - [Optional] sclite [[kaldi-asr/kaldi]](https://github.com/kaldi-asr/kaldi), install kaldi tool to get sclite for evaluation. After installation, create a soft link toward the sclite: 
   `mkdir ./software`
-  `ln -s PATH_TO_KALDI/tools/sctk-2.4.10/bin/sclite ./software/sclite`
+  `ln -s PATH_TO_KALDI/tools/sctk/bin/sclite ./software/sclite`
 
    You may use the python version evaluation tool for convenience (by setting 'evaluate_tool' as 'python' in line 16 of ./configs/baseline.yaml), but sclite can provide more detailed statistics.
 
