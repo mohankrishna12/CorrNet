@@ -9,10 +9,10 @@ import torch
 from collections import OrderedDict
 import utils
 gpu_id = 0 # which gpu to use
-dataset = 'phoenix2014' # support [phoenix2014, phoenix2014-T, CSL-Daily]
-prefix = './dataset/phoenix2014/phoenix-2014-multisigner' # ['./dataset/CSL-Daily', './dataset/phoenix2014-T', './dataset/phoenix2014/phoenix-2014-multisigner']
+dataset = 'phoenix2014-T' # support [phoenix2014, phoenix2014-T, CSL-Daily]
+prefix = './dataset/phoenix2014-T' # ['./dataset/CSL-Daily', './dataset/phoenix2014-T', './dataset/phoenix2014/phoenix-2014-multisigner']
 dict_path = f'./preprocess/{dataset}/gloss_dict.npy'
-model_weights = 'path_to_model_weights'  #TODO: replace with your path
+model_weights = './work_dir/baseline_res18/_best_model.pt'  #TODO: replace with your path
 select_id = 0 # The video selected to show. 539 for 31October_2009_Saturday_tagesschau_default-8, 0 for 01April_2010_Thursday_heute_default-1, 1 for 01August_2011_Monday_heute_default-6, 2 for 01December_2011_Thursday_heute_default-3
 
 # Load data and apply transformation
