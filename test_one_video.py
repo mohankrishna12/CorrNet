@@ -47,7 +47,7 @@ args = parser.parse_args()
 
 device_id = args.device  # specify which gpu to use
 if args.language == 'phoenix':
-    dataset = 'phoenix2014' 
+    dataset = 'phoenix2014-T' 
 elif args.language == 'csl':
     dataset = 'CSL-Daily' 
 else:
